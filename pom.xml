@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.topplsky</groupId>
+    <artifactId>pets</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>common</module>
+        <module>client</module>
+        <module>dal</module>
+        <module>core</module>
+        <module>web</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>pets</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <pets-version>1.0-SNAPSHOT</pets-version>
+        <mockito-all.version>1.10.19</mockito-all.version>
+        <junit.version>4.12</junit.version>
+        <mybatis-starter.version>1.1.1</mybatis-starter.version>
+        <spring-boot.version>1.4.5.RELEASE</spring-boot.version>
+        <spring-test.version>4.3.2.RELEASE</spring-test.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--module版本-->
+            <dependency>
+                <groupId>com.topplsky</groupId>
+                <artifactId>pets-client</artifactId>
+                <version>${pets-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.topplsky</groupId>
+                <artifactId>pets-core</artifactId>
+                <version>${pets-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.topplsky</groupId>
+                <artifactId>pets-common</artifactId>
+                <version>${pets-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.topplsky</groupId>
+                <artifactId>pets-dal</artifactId>
+                <version>${pets-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.topplsky</groupId>
+                <artifactId>pets-web</artifactId>
+                <version>${pets-version}</version>
+            </dependency>
+            <!--spring boot-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.collections</groupId>
+                <artifactId>google-collections</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.6</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+
+                    <configuration><!-- 指定该Main Class为全局的唯一入口 -->
+                        <mainClass>com.topplsky.pet.Application</mainClass>
+                        <layout>ZIP</layout>
+                        <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中-->
+                            </goals>
+                            <!--可以生成不含依赖包的不可执行Jar包-->
+                            <!-- configuration>
+                              <classifier>exec</classifier>
+                            </configuration> -->
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

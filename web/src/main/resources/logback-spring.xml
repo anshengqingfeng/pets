@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <property name="APP_NAME" value="pets"/>
+    <property name="LOG_PATH" value="${user.home}/work/logs"/>
+
+    <!-- 彩色日志 -->
+    <!-- 彩色日志依赖的渲染类 -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex"
+                    converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="wEx"
+                    converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+    <!-- 彩色日志格式 -->
+    <!--<property name="CONSOLE_LOG_PATTERN"-->
+    <!--value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(-&#45;&#45;){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>-->
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%clr([%d{yyyy-MM-dd HH:mm:ss.SSS]}){faint} %clr([%20.21t]){magenta} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(%-40.40logger{35}){cyan} %clr(%m){faint} %n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <!--<appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+    <!--<file>${LOG_PATH}/${APP_NAME}.log</file>-->
+    <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+    <!--<fileNamePattern>${LOG_PATH}/${APP_NAME}.log.%d{yyyy-MM-dd}-->
+    <!--</fileNamePattern>-->
+    <!--<maxHistory>7</maxHistory>-->
+    <!--</rollingPolicy>-->
+    <!--<encoder>-->
+    <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|[%thread] %level %logger{35}|%msg%n%n</pattern>-->
+    <!--<charset>utf8</charset>-->
+    <!--</encoder>-->
+    <!--</appender>-->
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <!--<appender-ref ref="APPLICATION" />-->
+    </root>
+</configuration>

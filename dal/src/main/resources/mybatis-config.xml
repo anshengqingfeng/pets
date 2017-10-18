@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- mybatis的配置文件 -->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--<mappers>-->
+    <!--<mapper resource="mybatis/ItemDOMapper.xml"/>-->
+    <!--<mapper resource="mybatis/UserDOMapper.xml"/>-->
+    <!--<mapper resource="mybatis/UserRelationDOMapper.xml"/>-->
+    <!--<mapper resource="mybatis/FeedbackDOMapper.xml"/>-->
+    <!--<mapper resource="mybatis/ContactDOMapper.xml"/>-->
+    <!--<mapper resource="mybatis/OrderDOMapper.xml"/>-->
+    <!--</mappers>-->
+</configuration>
